@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "a795ed78-ca76-465f-acf1-de68c67edbdf",
+		"name": "Cloudflare Api Discovery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Hook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Email",
+						"value": "{{auth_email}}",
+						"type": "string"
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "{{auth_key}}",
+						"type": "string"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"branch\": \"dev\",\n    \"name\": \"mynewhook2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloudflare",
+						"com"
+					],
+					"path": [
+						"client",
+						"v4",
+						"accounts",
+						":account_id",
+						"pages",
+						"projects",
+						":project_name",
+						"deploy_hooks"
+					],
+					"variable": [
+						{
+							"key": "account_id",
+							"value": "{{account_id}}"
+						},
+						{
+							"key": "project_name",
+							"value": "{{project_name}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Hook",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Email",
+								"value": "{{auth_email}}",
+								"type": "string"
+							},
+							{
+								"key": "X-Auth-Key",
+								"value": "{{auth_key}}",
+								"type": "string"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"branch\": \"master\",\n    \"name\": \"mynewhook\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cloudflare",
+								"com"
+							],
+							"path": [
+								"client",
+								"v4",
+								"accounts",
+								":account_id",
+								"pages",
+								"projects",
+								":project_name",
+								"deploy_hooks"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "project_name",
+									"value": "{{project_name}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 29 Dec 2021 13:13:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "6c53497d281e57c6-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "__cflb=0H28vgHxwvgAQtjUGU56Rb8iNWZVUvXhgsTf58E17Yy; SameSite=Lax; path=/; expires=Wed, 29-Dec-21 15:43:42 GMT; HttpOnly"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "__cfruid=618a79394503e65b4485bd9a52e6fd48b16fcfa9-1640783621; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "8"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"hook_id\": \"be2c0735-56fe-4b63-aaf4-c275b3feb6d8\",\n        \"name\": \"mynewhook\",\n        \"branch\": \"master\",\n        \"created_on\": \"2021-12-29T13:13:41.639163Z\"\n    },\n    \"success\": true,\n    \"errors\": [],\n    \"messages\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Hooks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Email",
+						"value": "{{auth_email}}",
+						"type": "string"
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "{{auth_key}}",
+						"type": "string"
+					}
+				],
+				"url": {
+					"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloudflare",
+						"com"
+					],
+					"path": [
+						"client",
+						"v4",
+						"accounts",
+						":account_id",
+						"pages",
+						"projects",
+						":project_name",
+						"deploy_hooks"
+					],
+					"variable": [
+						{
+							"key": "account_id",
+							"value": "{{account_id}}"
+						},
+						{
+							"key": "project_name",
+							"value": "{{project_name}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Hooks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Email",
+								"value": "{{auth_email}}",
+								"type": "string"
+							},
+							{
+								"key": "X-Auth-Key",
+								"value": "{{auth_key}}",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cloudflare",
+								"com"
+							],
+							"path": [
+								"client",
+								"v4",
+								"accounts",
+								":account_id",
+								"pages",
+								"projects",
+								":project_name",
+								"deploy_hooks"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "project_name",
+									"value": "{{project_name}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 29 Dec 2021 13:15:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "6c534bb2cbf98212-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "4"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": [\n        {\n            \"hook_id\": \"be2c0735-56fe-4b63-aaf4-c275b3feb6d8\",\n            \"name\": \"mynewhook\",\n            \"branch\": \"master\",\n            \"created_on\": \"2021-12-29T13:13:41.639163Z\"\n        },\n        {\n            \"hook_id\": \"5299d4eb-ce3f-426a-85e0-7fdcf32a51e7\",\n            \"name\": \"testhook\",\n            \"branch\": \"master\",\n            \"created_on\": \"2021-12-29T12:47:24.598853Z\"\n        },\n        {\n            \"hook_id\": \"aa2f2bcb-fccf-4a06-adc2-c09918a563c3\",\n            \"name\": \"preview_dev\",\n            \"branch\": \"dev\",\n            \"created_on\": \"2021-12-29T11:06:08.239277Z\"\n        },\n        {\n            \"hook_id\": \"90769584-aeb6-4e13-bd65-ac0141621e55\",\n            \"name\": \"deploy_now\",\n            \"branch\": \"master\",\n            \"created_on\": \"2021-12-29T11:05:45.839517Z\"\n        }\n    ],\n    \"success\": true,\n    \"errors\": [],\n    \"messages\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Hook",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Email",
+						"value": "{{auth_email}}",
+						"type": "string"
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "{{auth_key}}",
+						"type": "string"
+					}
+				],
+				"url": {
+					"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks/:hook_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloudflare",
+						"com"
+					],
+					"path": [
+						"client",
+						"v4",
+						"accounts",
+						":account_id",
+						"pages",
+						"projects",
+						":project_name",
+						"deploy_hooks",
+						":hook_id"
+					],
+					"variable": [
+						{
+							"key": "account_id",
+							"value": "{{account_id}}"
+						},
+						{
+							"key": "project_name",
+							"value": "{{project_name}}"
+						},
+						{
+							"key": "hook_id",
+							"value": "5299d4eb-ce3f-426a-85e0-7fdcf32a51e7"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Hook",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Email",
+								"value": "{{auth_email}}",
+								"type": "string"
+							},
+							{
+								"key": "X-Auth-Key",
+								"value": "{{auth_key}}",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://api.cloudflare.com/client/v4/accounts/:account_id/pages/projects/:project_name/deploy_hooks/:hook_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cloudflare",
+								"com"
+							],
+							"path": [
+								"client",
+								"v4",
+								"accounts",
+								":account_id",
+								"pages",
+								"projects",
+								":project_name",
+								"deploy_hooks",
+								":hook_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "project_name",
+									"value": "{{project_name}}"
+								},
+								{
+									"key": "hook_id",
+									"value": "5299d4eb-ce3f-426a-85e0-7fdcf32a51e7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 29 Dec 2021 13:25:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "6c535a549d45822a-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "5"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "__cfruid=0562fbe299e3dc3074ebe712056140d50013df9e-1640784311; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ok\",\n    \"success\": true,\n    \"errors\": [],\n    \"messages\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Call Hook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/:hook_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloudflare",
+						"com"
+					],
+					"path": [
+						"client",
+						"v4",
+						"pages",
+						"webhooks",
+						"deploy_hooks",
+						":hook_id"
+					],
+					"variable": [
+						{
+							"key": "hook_id",
+							"value": "68c67841-72e8-43c5-8b21-28cb804ef7ae"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Call Hook",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/:hook_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cloudflare",
+								"com"
+							],
+							"path": [
+								"client",
+								"v4",
+								"pages",
+								"webhooks",
+								"deploy_hooks",
+								":hook_id"
+							],
+							"variable": [
+								{
+									"key": "hook_id",
+									"value": "68c67841-72e8-43c5-8b21-28cb804ef7ae"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 29 Dec 2021 13:17:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "6c534f4fba96060e-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "344"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"id\": \"b8cd316d-ce1c-4c88-9039-570ff0257386\"\n    },\n    \"success\": true,\n    \"errors\": [],\n    \"messages\": []\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "auth_email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "account_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "project_name",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
